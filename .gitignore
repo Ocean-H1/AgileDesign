@@ -1,0 +1,27 @@
+# Logs
+logs
+*.log
+
+# Node modules
+node_modules
+
+# Package lock files
+package-lock.json
+
+# IDE and editor files
+.idea
+.vscode
+
+# Build artifacts
+dist/
+build/
+
+# Compiled and transpiled files
+*.pyc
+*.class
+
+# NPM cache
+.npm
+
+# Optional: Add other files or directories specific to your project that should not be tracked
+your-specific-file-or-directory
