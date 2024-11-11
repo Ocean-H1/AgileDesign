@@ -7,6 +7,9 @@
   "license": "ISC",
   "description": "UI组件库",
   "scripts": {
+    "dev": "dumi dev",
+    "build:site": "rimraf doc-site && dumi build",
+    "preview:site": "pnpm build:site && serve doc-site",
     "commit": "git-cz"
   },
   "husky": {
@@ -40,12 +43,15 @@
     "@umijs/fabric": "^4.0.1",
     "commitizen": "^4.3.1",
     "cz-conventional-changelog": "^3.3.0",
+    "dumi": "^2.4.13",
     "eslint-define-config": "^2.1.0",
     "husky": "^9.1.6",
     "lint-staged": "^15.2.10",
     "prettier": "^3.3.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "rimraf": "^6.0.1",
+    "serve": "^14.2.4",
     "typescript": "^5.6.3"
   },
   "dependencies": {

@@ -2,6 +2,10 @@
 logs
 *.log
 
+# dumi
+.dumi
+doc-site
+
 # Node modules
 node_modules
 
