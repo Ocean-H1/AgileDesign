@@ -14,7 +14,7 @@
   },
   "include": [
     "src",
-    "typings.d.ts",
+    "typings/*.d.ts",
     ".dumirc.ts"
   ],
   "exclude": [

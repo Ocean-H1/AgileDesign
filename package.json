@@ -1,5 +1,5 @@
 {
-  "name": "agileui",
+  "name": "agile-design",
   "version": "1.0.0",
   "main": "src/index.ts",
   "keywords": [],
@@ -55,6 +55,7 @@
     "typescript": "^5.6.3"
   },
   "dependencies": {
+    "classnames": "^2.5.1",
     "prop-types": "^15.8.1"
   }
 }

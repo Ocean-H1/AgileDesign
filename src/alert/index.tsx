@@ -1,36 +1,41 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import t from 'prop-types';
+import { genAlertClass } from './style/index';
+import classNames from 'classnames';
 
 export interface AlertProps {
-  kind?: 'info' | 'positive' | 'negative' | 'warning';
-  children: string
+  type?: 'info' | 'error' | 'success' | 'warning';
+  message: ReactNode;
+  size?: 'small' | 'medium' | 'large';
+  // closeable?: boolean;
+  // showIcon?: boolean;
+  // icon?: ReactNode;
+  description?: ReactNode;
+  // onClose?: (e: MouseEvent) => void;
+  // afterClose?: () => void;
 }
 
-export type KindMap = Record<Required<AlertProps>['kind'], string>;
-
-const prefixCls = 'agile-alert';
-
-const kinds: KindMap = {
-  info: '#5352ED',
-  positive: '#2ED573',
-  negative: '#FF4757',
-  warning: '#FFA502',
+const Alert: React.FC<AlertProps> = ({
+  message,
+  type = 'info',
+  size = 'medium',
+  description,
+  ...rest
+}) => {
+  const alertClass = genAlertClass(size, type);
+  return (
+    <div className={classNames(alertClass)} {...rest}>
+      {message}
+      {description && <div className="Agile-alert-desc">{description}</div>}
+    </div>
+  );
 };
 
-const Alert: React.FC<AlertProps> = ({ children, kind = 'info', ...rest }) => (
-  <div
-    className={prefixCls}
-    style={{
-      background: kinds[kind],
-    }}
-    {...rest}
-  >
-    {children}
-  </div>
-);
-
 Alert.propTypes = {
-  kind: t.oneOf(['info', 'positive', 'negative', 'warning']),
+  type: t.oneOf(['info', 'error', 'success', 'warning']),
+  size: t.oneOf(['small', 'medium', 'large']),
+  message: t.node.isRequired,
+  description: t.node,
 };
 
 export default Alert;
