@@ -1,7 +1,7 @@
 ---
-title: Agile UI
+title: Agile Design
 hero:
-  title: AgileUI
+  title: Agile Design
   description: 开箱即用的UI组件库
   actions:
     - text: 快速上手

@@ -1,10 +1,10 @@
 import { defineConfig } from 'dumi';
 
 export default defineConfig({
-  title: 'Agile UI',
+  title: 'Agile Design',
   outputPath: 'doc-site',
   themeConfig: {
-    name: 'AgileUI',
+    name: 'Agile Design',
     // logo: '/logo.png',
     socialLinks: {
       github: 'https://github.com/Ocean-H1/AgileUI',
