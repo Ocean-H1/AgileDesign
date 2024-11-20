@@ -15,7 +15,8 @@
   "include": [
     "src",
     "typings/*.d.ts",
-    ".dumirc.ts"
+    ".dumirc.ts",
+    "setupTests.ts"
   ],
   "exclude": [
     "node_modules"
