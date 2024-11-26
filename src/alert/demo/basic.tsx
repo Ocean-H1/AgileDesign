@@ -1,5 +1,6 @@
 import React from 'react';
 import { Alert } from 'agile-design';
+import '../style/index'
 
 export default () => (
   <div style={{ display: 'flex', gap: 20, }}>
