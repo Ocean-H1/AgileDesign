@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react';
 import t from 'prop-types';
-import { genAlertClass } from './style/index';
 import classNames from 'classnames';
 
 export interface AlertProps {
@@ -15,6 +14,7 @@ export interface AlertProps {
   // afterClose?: () => void;
 }
 
+const prefixCls = 'Agile-alert';
 const Alert: React.FC<AlertProps> = ({
   message,
   type = 'info',
@@ -22,7 +22,10 @@ const Alert: React.FC<AlertProps> = ({
   description,
   ...rest
 }) => {
-  const alertClass = genAlertClass(size, type);
+  const alertClass = classNames(prefixCls, 
+    `${prefixCls}-${type}`,
+    `${prefixCls}-${size}`
+  )
   return (
     <div className={classNames(alertClass)} {...rest}>
       {message}
