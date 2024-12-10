@@ -1,7 +1,7 @@
 {
   "name": "agile-design",
   "version": "1.0.0",
-  "main": "src/index.ts",
+  "main": "components/index.ts",
   "keywords": [],
   "author": "Oceanhhan",
   "license": "ISC",
@@ -25,12 +25,12 @@
     }
   },
   "lint-staged": {
-    "src/**/*.ts?(x)": [
+    "components/**/*.ts?(x)": [
       "prettier --write",
       "eslint --fix",
       "git add"
     ],
-    "src/**/*.less": [
+    "components/**/*.less": [
       "stylelint --syntax less --fix",
       "git add"
     ]
