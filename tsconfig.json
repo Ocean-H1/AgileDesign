@@ -12,11 +12,12 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["components/*"],
+      "agile-design": ["components/index.ts"]
     }
   },
   "include": [
-    "src",
+    "components",
     "typings",
     ".dumirc.ts",
     "tests"

@@ -1,1 +1,1 @@
-declare module 'agile-design'
+// declare module 'agile-design'

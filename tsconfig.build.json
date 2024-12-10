@@ -5,7 +5,7 @@
     "skipLibCheck": true,
   },
   "include": [
-    "src",
+    "components",
   ],
   "exclude": [
     "**/__tests__/**",

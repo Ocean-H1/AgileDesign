@@ -1,8 +1,15 @@
 import { defineConfig } from 'dumi';
+import path from 'path';
 
 export default defineConfig({
   title: 'Agile Design',
   outputPath: 'doc-site',
+  resolve: {
+    atomDirs: [{ type: 'component', dir: 'components' }]
+  },
+  alias: {
+    'agile-design': path.join(__dirname, 'components')
+  },
   themeConfig: {
     name: 'Agile Design',
     // logo: '/logo.png',
