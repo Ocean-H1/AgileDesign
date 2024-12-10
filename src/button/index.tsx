@@ -1,6 +1,6 @@
 import React from 'react';
 import t from 'prop-types';
-import { CommonShapeType, CommonSizeType } from '../../utils/index';
+import { CommonShapeType, CommonSizeType } from '../_util/index';
 import classNames from 'classnames';
 import IconWrapper from './IconWrapper';
 

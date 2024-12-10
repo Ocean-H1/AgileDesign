@@ -17,11 +17,13 @@
   },
   "include": [
     "src",
-    "typings/*.d.ts",
+    "typings",
     ".dumirc.ts",
-    "setupTests.ts"
+    "tests"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "lib",
+    "esm"
   ]
 }

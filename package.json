@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "dumi dev",
     "build:site": "rimraf doc-site && dumi build",
+    "build:types": "tsc -p tsconfig.build.json && cpr lib esm",
     "preview:site": "pnpm build:site && serve doc-site",
     "commit": "git-cz"
   },
