@@ -1,5 +1,4 @@
 import React from 'react';
-import t from 'prop-types';
 import { CommonShapeType, CommonSizeType } from '../_util/index';
 import classNames from 'classnames';
 import IconWrapper from './IconWrapper';
@@ -110,18 +109,5 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => 
     </button>
   );
 });
-
-Button.propTypes = {
-  type: t.oneOf(['primary', 'dashed', 'text', 'link', 'danger', 'default']),
-  disabled: t.bool,
-  shape: t.oneOf(['circle', 'round']),
-  size: t.oneOf(['small', 'medium', 'large']),
-  // loading: t.oneOfType([t.bool, t.shape({ delay: t.number.isRequired })]),
-  ghost: t.bool,
-  children: t.node,
-  className: t.string,
-  icon: t.node,
-  iconPosition: t.oneOf(['start', 'end']),
-};
 
 export default Button;
