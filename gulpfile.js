@@ -11,17 +11,33 @@ const paths = {
   scripts: ['components/**/*.{ts,tsx}', '!components/**/demo/*.{ts,tsx}'], // 脚本文件路径
 };
 
-function compileCJS() {
-  const { dest, scripts } = paths;
+function compileScripts(babelEnv, destDir) {
+  const { scripts } = paths;
+  process.env.BABEL_ENV = babelEnv;
 
   return gulp
     .src(scripts)
-    .pipe(babel()) // 使用gulp-babel处理
-    .pipe(gulp.dest(dest.lib));
+    .pipe(babel())
+    .pipe(gulp.dest(destDir));
 }
 
-// 并行任务 后续加入样式处理 可以并行处理
-const build = gulp.parallel(compileCJS);
+function compileCJS() {
+  const { dest } = paths;
+
+  return compileScripts('cjs', dest.lib);
+}
+
+function compileESM() {
+  const { dest } = paths;
+
+  return compileScripts('esm', dest.esm);
+}
+
+// 串行编译脚本，避免环境变量影响
+const buildScripts = gulp.series(compileCJS, compileESM)
+
+// 整体并行任务，后续加入样式处理
+const build = gulp.parallel(buildScripts);
 
 exports.build = build;
 
