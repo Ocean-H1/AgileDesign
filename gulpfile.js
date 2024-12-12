@@ -33,11 +33,20 @@ function compileESM() {
   return compileScripts('esm', dest.esm);
 }
 
-// 串行编译脚本，避免环境变量影响
-const buildScripts = gulp.series(compileCJS, compileESM)
+function copyLess() {
+  const { styles, dest } = paths;
 
-// 整体并行任务，后续加入样式处理
-const build = gulp.parallel(buildScripts);
+  return gulp
+    .src(styles)
+    .pipe(gulp.dest(dest.lib))
+    .pipe(gulp.dest(dest.esm));
+}
+
+// 串行编译脚本，避免环境变量影响
+const buildScripts = gulp.series(compileCJS, compileESM);
+
+// 整体并行任务
+const build = gulp.parallel(buildScripts, copyLess);
 
 exports.build = build;
 
