@@ -1,5 +1,8 @@
-const gulp = require('gulp');
-const babel = require('gulp-babel');
+import gulp from 'gulp';
+import babel from 'gulp-babel';
+import less from "gulp-less";
+import cleanCss from 'gulp-clean-css';
+import autoPrefixer from 'gulp-autoprefixer';
 
 const paths = {
   dest: {
@@ -42,12 +45,28 @@ function copyLess() {
     .pipe(gulp.dest(dest.esm));
 }
 
+function less2css() {
+  return gulp
+    .src(paths.styles)
+    .pipe(less())
+    .pipe(autoPrefixer())
+    .pipe(cleanCss({
+      level: {
+        1: {
+          specialComments: 0,
+          removeEmpty: true,
+          removeWhitespace: true,
+        }
+      }
+    }))
+    .pipe(gulp.dest(paths.dest.lib))
+    .pipe(gulp.dest(paths.dest.esm));
+}
+
 // 串行编译脚本，避免环境变量影响
 const buildScripts = gulp.series(compileCJS, compileESM);
 
 // 整体并行任务
-const build = gulp.parallel(buildScripts, copyLess);
+export const build = gulp.parallel(buildScripts, copyLess, less2css);
 
-exports.build = build;
-
-exports.default = build;
+export default build;
