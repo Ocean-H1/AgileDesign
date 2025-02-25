@@ -1,13 +1,22 @@
 {
   "name": "agile-design",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "main": "lib/index.js",
   "module": "esm/index.js",
   "typings": "esm/index.d.ts",
-  "keywords": [],
+  "files": ["esm", "lib", "README.md", "LICENSE"],
+  "keywords": ["react", "component", "components", "typescript", "frontend", "react-component", "ui", "framework"],
   "author": "Oceanhhan",
-  "license": "ISC",
-  "description": "UI组件库",
+  "license": "MIT",
+  "homepage": "https://agile-design.vercel.app/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ocean-H1/AgileDesign.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Ocean-H1/AgileDesign/issues"
+  },
+  "description": "An UI design language and React components implementation",
   "sideEffects": [
     "dist/*",
     "esm/**/style/*",
@@ -21,7 +30,8 @@
     "preview:site": "pnpm build:site && serve doc-site",
     "clean": "rimraf lib esm dist",
     "build": "pnpm run clean && pnpm run build:types && gulp",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "prepublishOnly": "pnpm run build"
   },
   "husky": {
     "hooks": {
@@ -89,5 +99,9 @@
   "dependencies": {
     "@babel/runtime": "^7.26.0",
     "classnames": "^2.5.1"
+  },
+  "peerDependencies": {
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
   }
 }
